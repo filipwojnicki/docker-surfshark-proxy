@@ -30,3 +30,7 @@ A Docker container that runs Surfshark VPN with SOCKS proxy support.
 To run the container, use the following command:
 
 Inspired by [docker-surfshark](https://github.com/ilteoood/docker-surfshark)
+
+## Support
+
+[Support](https://buymeacoffee.com/meastr0)

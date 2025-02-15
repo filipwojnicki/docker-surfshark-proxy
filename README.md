@@ -29,6 +29,24 @@ A Docker container that runs Surfshark VPN with SOCKS proxy support.
 
 To run the container, use the following command:
 
+Get credentials from [surfshark](https://my.surfshark.com/vpn/manual-setup/main/openvpn)
+
+Choose your server config from [surfshark configuration](https://my.surfshark.com/vpn/api/v1/server/configurations) and save it: config.ovpn
+
+```bash
+docker build -t myimage .
+```
+
+```bash
+docker compose up -d
+```
+
+or
+
+```bash
+docker run -d --name surfshark1 --cap-add NET_ADMIN --device /dev/net/tun --sysctl net.ipv6.conf.all.disable_ipv6=1 --sysctl net.ipv4.conf.eth0.route_localnet=1 -e SURFSHARK_USER= -e SURFSHARK_PASSWORD= -e LOCAL_NETWORK=192.168.1.0/24,10.1.1.0/24,172.20.0.0/24 -p 8111:8118 -p 1081:1080 --dns 1.1.1.1 myimage
+```
+
 Inspired by [docker-surfshark](https://github.com/ilteoood/docker-surfshark)
 
 ## Support
